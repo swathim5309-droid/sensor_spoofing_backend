@@ -22,7 +22,8 @@ except Exception as e:
     print("❌ Sensor model load failed:", repr(e))
 
 ACTION_MAP = {0: "Normal", 1: "Spoofing"}  # Example mapping
-SENSOR_REQUIRED_FEATURES = ['sensor1','sensor2','sensor3']  # adjust to your dataset
+SENSOR_REQUIRED_FEATURES = ['speed_kmh
+','acceleration_mps2','lane_deviation','obstacle_distance','traffic_density',]  # adjust to your dataset
 
 @app.get("/")
 def health():
