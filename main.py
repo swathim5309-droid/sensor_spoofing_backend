@@ -4,9 +4,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 import numpy as np, pickle, os, csv, io
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Sensor Spoofing Detection API")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # or specify your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 class InputData(BaseModel):
     features: List[float]
