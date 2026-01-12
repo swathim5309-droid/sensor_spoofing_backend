@@ -61,9 +61,9 @@ print("MODEL EXISTS:", os.path.exists(MODEL_PATH))
 def health():
     return {"status": "Backend running"}
 
--------------------------------
-Predict (manual / JSON)
--------------------------------
+# -------------------------------
+# Predict (manual / JSON)
+# -------------------------------
 @app.post("/predict")
 def predict(data: InputData):
     if model is None:
@@ -87,6 +87,8 @@ def predict(data: InputData):
 REQUIRED_FEATURES = [
    'x','y','speed','acceleration'
 ]
+ SENSOR_REQUIRED_FEATURES = ['speed_kmh','acceleration_mps2','lane_deviation','obstacle_distance','traffic_density',]
+ACTION_MAP = {0: "Normal", 1: "Spoofing"}
 
 @app.post("/predict-csv")
 async def predict_csv(file: UploadFile = File(...)):
