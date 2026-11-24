@@ -207,8 +207,7 @@ def predict_sensor_json(data: InputData):
             "action": action,
             "confidence": confidence,
         }
-except HTTPException:#
-        raise#etra -4
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         
