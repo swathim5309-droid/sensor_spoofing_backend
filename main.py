@@ -178,9 +178,7 @@ async def predict_csv(file: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
-        except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))#extra -3
-
+       
 # ===============================
 # SENSOR SPOOFING (JSON)
 # ===============================
